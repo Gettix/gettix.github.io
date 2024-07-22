@@ -36,7 +36,7 @@
       #usercard{
 	 left: 20%;
          text-align: right;
-	 margin-left: 100px;
+	 margin-left: 150px;
       }
 	  
       .centered {
@@ -64,17 +64,20 @@
   <body>
     <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
     </div>
-    <h1 class="centered" id="coinTab">Press button to start timer</h1>
+    <h1 class="centered" id="coinTab">Coins: 0</h1>
     <div onclick="startTimer()" class="button" id="timerDisplay">Work</div>
 
     <script>
       var timeLeft = 100; 
 	  var temp = 0;
+      var clicked = 0;
 	  var coins = 0;
       
       function startTimer() {
+	if (clicked == 0) {
           if (timeLeft > 0 && temp == 0) {
-			  document.querySelector('.button').style.backgroundColor = 'gray';
+	      clicked = 1;
+	      document.querySelector('.button').style.backgroundColor = 'gray';
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
               setTimeout(startTimer, 100);
@@ -90,6 +93,7 @@
             resetButtonColor();
 			temp = 1;
 		  }
+      }
       }
       
       function resetButtonColor() {
