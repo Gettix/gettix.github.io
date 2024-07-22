@@ -59,16 +59,9 @@
     <div onclick="startTimer()" class="button" id="timerDisplay">Work</div>
 
     <script>
-      let tg = window.Telegram.WebApp;
-      tg.expand();
       var timeLeft = 1000; 
 	  var temp = 0;
 	  var coins = 0;
-
-      let usercard = document.getElementById("usercard"); //получаем блок usercard 
-      let profName = document.createElement('p'); //создаем параграф
-      profName.innerText = `Played as:`;
-      usercard.appendChild(profName);
       
       function startTimer() {
           if (timeLeft > 0 && temp == 0) {
@@ -101,4 +94,14 @@
       }
     </script>
   </body>
+  <script>
+	let tg = window.Telegram.WebApp;
+	tg.expand();
+	
+	let usercard = document.getElementById("usercard"); //получаем блок usercard 
+      	let profName = document.createElement('p'); //создаем параграф
+     	profName.innerText = `Played as: ${tg.initDataUnsafe.user.username}`;
+    	usercard.appendChild(profName);
+	  
+  </script>
 </html>
