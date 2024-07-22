@@ -3,13 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <title>RewardRush</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
+	body{
+         color: var(--tg-theme-text-color);
+         background: var(--tg-theme-bg-color);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         font-size: 18px;
+      }
+
+      .hint{
+         color: var(--tg-theme-hint-color);
+      }
+
+      .link{
+         color: var(--tg-theme-link-color);
+      }
+
+      .button:not(:last-child){
+         margin-bottom: 20px
+      }
+
+      #usercard{
+         text-align: center;
+      }
 	  
-	  .centered {
-        top: 50%;
-        left: 50%;
-        text-align: center;
-	  }
+      .centered {
+         top: 50%;
+         left: 50%;
+         text-align: center;
+      }
 	
       .button {
         padding: 15px 25px;
@@ -17,7 +42,8 @@
         text-align: center;
         cursor: pointer;
         outline: none;
-        color: white;
+        background: var(--tg-theme-button-color);
+        color: var(--tg-theme-button-text-color);
         background-color: blue;
         border: none;
         border-radius: 15px;
@@ -27,13 +53,21 @@
     </style>
   </head>
   <body>
+    <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
+    </div>
     <h1 class="centered" id="coinTab">Press button to start timer</h1>
     <div onclick="startTimer()" class="button" id="timerDisplay">Work</div>
 
     <script>
+      let tg = window.Telegram.WebApp;
+      tg.expand();
       var timeLeft = 1000; 
 	  var temp = 0;
 	  var coins = 0;
+
+      let usercard = document.getElementById("usercard"); //получаем блок usercard 
+      let profName = document.createElement('p'); //создаем параграф
+      profName.innerText = `${tg.initDataUnsafe.user.username}`;
       
       function startTimer() {
           if (timeLeft > 0 && temp == 0) {
