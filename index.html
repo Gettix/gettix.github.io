@@ -29,7 +29,7 @@
       }
 
       #usercard{
-         text-align: center;
+         text-align: right;
       }
 	  
       .centered {
@@ -99,10 +99,18 @@
   <script>
 	let tg = window.Telegram.WebApp;
 	tg.expand();
+
+	let earnButt = document.getElementById("timerDisplay");
+	btn.addEventListener('click', function(){
+	if (document.getElementById("timerDisplay").textContent == "Earn 100!"):
+		tg.sendData(100); 
+      	//при клике на основную кнопку отправляем данные в строковом виде
+   	});
 	
+	  
 	let usercard = document.getElementById("usercard"); //получаем блок usercard 
       	let profName = document.createElement('p'); //создаем параграф
-     	profName.innerText = `Played as: ${tg.initDataUnsafe.user.username}`;
+     	profName.innerText = `@${tg.initDataUnsafe.user.username}`;
     	usercard.appendChild(profName);
 	  
   </script>
