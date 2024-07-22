@@ -79,7 +79,7 @@
       
       function startTimer() {
           if (timeLeft > 0 && temp == 0) {
-	      document.getElementById("timerDisplay").setAttribute('disabled', '');
+	      document.getElementById("timerDisplay").disabled = "disabled";
 	      document.querySelector('.button').style.backgroundColor = 'gray';
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
@@ -93,7 +93,7 @@
 			  temp = 0;
 		  	  clicked == 0;
           } else {
-		  	document.getElementById("timerDisplay").setAttribute('enabled', '');
+		  	document.getElementById("timerDisplay").disabled = "enabled";
 			document.getElementById("timerDisplay").textContent = "Earn 100!";
             clearInterval();
             resetButtonColor();
