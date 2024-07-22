@@ -70,17 +70,17 @@
     <script>
       var timeLeft = 100; 
 	  var temp = 0;
-      var clicked = 0;
 	  var coins = 0;
       
       function startTimer() {
-          if (timeLeft > 0 && temp == 0 && clicked == 0) {
-	      clicked = 1;
+          if (timeLeft > 0 && temp == 0) {
+	      document.getElementById("timerDisplay").setAttribute('disabled', '');
 	      document.querySelector('.button').style.backgroundColor = 'gray';
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
               setTimeout(startTimer, 100);
           } else if (temp == 1) {
+		  	  
 			  document.getElementById("timerDisplay").textContent = "Work";
 			  timeLeft = 100;
 			  coins += 100;
@@ -88,6 +88,7 @@
 			  temp = 0;
 		  	  clicked == 0;
           } else {
+		  	document.getElementById("timerDisplay").setAttribute('enabled', '');
 			document.getElementById("timerDisplay").textContent = "Earn 100!";
             clearInterval();
             resetButtonColor();
