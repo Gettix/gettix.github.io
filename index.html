@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RewardRush</title>
+    <style>
+	  
+	  .centered {
+        top: 50%;
+        left: 50%;
+        text-align: center;
+	  }
+	
+      .button {
+        padding: 15px 25px;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: white;
+        background-color: blue;
+        border: none;
+        border-radius: 15px;
+      }
+
+      .button:hover {background-color: gray}
+    </style>
+  </head>
+  <body>
+    <h1 class="centered" id="coinTab">Press button to start timer</h1>
+    <div onclick="startTimer()" class="button" id="timerDisplay">Work</div>
+
+    <script>
+      var timeLeft = 1000; 
+	  var temp = 0;
+	  var coins = 0;
+      
+      function startTimer() {
+          if (timeLeft > 0 && temp == 0) {
+			  document.querySelector('.button').style.backgroundColor = 'gray';
+              document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
+              timeLeft--;
+              setTimeout(startTimer, 1000);
+          } else if (temp == 1) {
+			  document.getElementById("timerDisplay").textContent = "Work";
+			  timeLeft = 1000;
+			  coins += 100;
+			  document.getElementById("coinTab").textContent = "Coins: " + coins;
+			  temp = 0;
+          } else {
+			document.getElementById("timerDisplay").textContent = "Earn 100!";
+            clearInterval();
+            resetButtonColor();
+			temp = 1;
+		  }
+      }
+      
+      function resetButtonColor() {
+          var button = document.querySelector('.button');
+          if (button) {
+              if (button.style.backgroundColor === 'gray') {
+                  button.style.backgroundColor = 'blue';
+                  timeLeft = 10; // Reset the timer
+              }
+          }
+      }
+    </script>
+  </body>
+</html>
