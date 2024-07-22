@@ -74,8 +74,7 @@
 	  var coins = 0;
       
       function startTimer() {
-	if (clicked == 0) {
-          if (timeLeft > 0 && temp == 0) {
+          if (timeLeft > 0 && temp == 0 && clicked == 0) {
 	      clicked = 1;
 	      document.querySelector('.button').style.backgroundColor = 'gray';
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
@@ -87,13 +86,13 @@
 			  coins += 100;
 			  document.getElementById("coinTab").textContent = "Coins: " + coins;
 			  temp = 0;
+		  	  clicked == 0;
           } else {
 			document.getElementById("timerDisplay").textContent = "Earn 100!";
             clearInterval();
             resetButtonColor();
 			temp = 1;
 		  }
-      }
       }
       
       function resetButtonColor() {
