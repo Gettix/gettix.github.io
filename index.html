@@ -61,7 +61,7 @@
     <div onclick="startTimer()" class="button" id="timerDisplay">Work</div>
 
     <script>
-      var timeLeft = 1000; 
+      var timeLeft = 100; 
 	  var temp = 0;
 	  var coins = 0;
       
@@ -70,10 +70,10 @@
 			  document.querySelector('.button').style.backgroundColor = 'gray';
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
-              setTimeout(startTimer, 1000);
+              setTimeout(startTimer, 100);
           } else if (temp == 1) {
 			  document.getElementById("timerDisplay").textContent = "Work";
-			  timeLeft = 1000;
+			  timeLeft = 100;
 			  coins += 100;
 			  document.getElementById("coinTab").textContent = "Coins: " + coins;
 			  temp = 0;
