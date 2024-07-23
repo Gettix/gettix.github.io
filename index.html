@@ -59,15 +59,16 @@
       }
 
 	.button_frame {
-        padding: 15px 25px;
+        padding: 30px 45px;
         font-size: 24px;
         text-align: center;
         cursor: pointer;
         outline: none;
         background: var(--tg-theme-button-color);
         color: var(--tg-theme-button-text-color);
-        background-color: blue;
-        border: none;
+        background-color: #89D3E3;
+        border: solid;
+	border-color: white;
         border-radius: 15px;
       }
 
@@ -83,7 +84,7 @@
     <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
     </div>
     <h1 class="centered" id="coinTab">Coins: 0</h1>
-    <div><button onclick="startTimer()" class="button" id="timerDisplay">Work</button></div>
+    <div class="button_frame"><button onclick="startTimer()" class="button" id="timerDisplay">Work</button></div>
 
     <script>
       var timeLeft = 100; 
