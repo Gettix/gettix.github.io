@@ -28,15 +28,14 @@
          margin-bottom: 20px
       }
 
-      .right {
-	
+      .balance_text {
+	text-align: center;
+	color: #678AE3;
 
       }
 	    
       #usercard{
-	 left: 20%;
-         text-align: right;
-	 margin-left: 150px;
+         text-align: center;
       }
 	  
       .centered {
@@ -53,7 +52,7 @@
         outline: none;
         background: var(--tg-theme-button-color);
         color: var(--tg-theme-button-text-color);
-        background-color: #38AEFF;
+        background-color: rgba(150, 213, 243, .10);
         border: none;
         border-radius: 15px;
       }
@@ -82,7 +81,8 @@
     <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
     </div>
     <div class="button_frame">
-	    <h1 class="centered" id="coinTab">Coins: 0</h1>
+	    <p class="balance_text">Your balance</p>
+	    <h1 class="centered" id="coinTab">0</h1>
 	    <button onclick="startTimer()" class="button" id="timerDisplay">Work</button>
     </div>
 
@@ -94,7 +94,7 @@
       function startTimer() {
           if (timeLeft > 0 && temp == 0) {
 	      document.getElementById("timerDisplay").disabled = true;
-	      document.querySelector('.button').style.backgroundColor = 'gray';
+	      document.querySelector('.button').style.backgroundColor = rgba(150, 213, 243, .3);
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
               setTimeout(startTimer, 100);
@@ -103,7 +103,7 @@
 			  document.getElementById("timerDisplay").textContent = "Work";
 			  timeLeft = 100;
 			  coins += 100;
-			  document.getElementById("coinTab").textContent = "Coins: " + coins;
+			  document.getElementById("coinTab").textContent = coins;
 			  temp = 0;
 		  	  clicked == 0;
           } else {
@@ -118,8 +118,8 @@
       function resetButtonColor() {
           var button = document.querySelector('.button');
           if (button) {
-              if (button.style.backgroundColor === 'gray') {
-                  button.style.backgroundColor = 'blue';
+              if (button.style.backgroundColor === rgba(150, 213, 243, .3)) {
+                  button.style.backgroundColor = rgba(150, 213, 243, .10);
                   timeLeft = 10; // Reset the timer
               }
           }
