@@ -61,7 +61,6 @@
         padding: 30px 55px;
         font-size: 24px;
 	text-align: center;
-	cursor: pointer;
         outline: none;
         background: var(--tg-theme-button-color);
         color: var(--tg-theme-button-text-color);
@@ -95,7 +94,7 @@
       function startTimer() {
           if (timeLeft > 0 && temp == 0) {
 	      document.getElementById("timerDisplay").disabled = true;
-	      document.querySelector('.button').style.backgroundColor = rgba(150, 213, 243, .3);
+	      document.querySelector('.button').style.backgroundColor = "rgba(150, 213, 243, .3)";
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
               setTimeout(startTimer, 100);
@@ -119,8 +118,8 @@
       function resetButtonColor() {
           var button = document.querySelector('.button');
           if (button) {
-              if (button.style.backgroundColor === rgba(150, 213, 243, .3)) {
-                  button.style.backgroundColor = rgba(150, 213, 243, .10);
+              if (button.style.backgroundColor === "rgba(150, 213, 243, .3)") {
+                  button.style.backgroundColor = "rgba(150, 213, 243, .10)";
                   timeLeft = 10; // Reset the timer
               }
           }
