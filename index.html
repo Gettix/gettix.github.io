@@ -69,7 +69,7 @@
   <body>
     <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
     </div>
-    <h1 class="centered" id="coinTab">Coins: 1</h1>
+    <h1 class="centered" id="coinTab">Coins: 0</h1>
     <div><button onclick="startTimer()" class="button" id="timerDisplay">Work</button></div>
 
     <script>
@@ -126,7 +126,7 @@
 	
 	  
 	let usercard = document.getElementById("usercard"); //получаем блок usercard 
-      	let profName = document.createElement('p'); //создаем параграф
+      	let profName = document.createElement('h1'); //создаем заголовок
      	profName.innerText = `@${tg.initDataUnsafe.user.username}`;
     	usercard.appendChild(profName);
 	  
