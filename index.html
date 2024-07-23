@@ -9,7 +9,7 @@
     <style>
 	body{
          color: var(--tg-theme-text-color);
-         background: var(--tg-theme-bg-color);
+	 background-image: linear-gradient(bottom, rgb(0, 34, 149) 24%, rgb(202, 207, 210) 62%);
          display: flex;
          flex-direction: column;
          align-items: center;
@@ -41,6 +41,7 @@
       .centered {
          top: 50%;
          left: 50%;
+	 color: white;
          text-align: center;
       }
 	
@@ -52,7 +53,7 @@
         outline: none;
         background: var(--tg-theme-button-color);
         color: var(--tg-theme-button-text-color);
-        background-color: rgba(150, 213, 243, .10);
+        background-color: rgba(0, 73, 255, .10);
         border: none;
         border-radius: 15px;
       }
@@ -64,7 +65,7 @@
         outline: none;
         background: var(--tg-theme-button-color);
         color: var(--tg-theme-button-text-color);
-        background-color: rgba(45, 69, 207,.10);
+        background-color: rgba(67, 110, 255,.10);
         border: none;
         border-radius: 15px;
       }
@@ -94,7 +95,7 @@
       function startTimer() {
           if (timeLeft > 0 && temp == 0) {
 	      document.getElementById("timerDisplay").disabled = true;
-	      document.querySelector('.button').style.backgroundColor = "rgba(150, 213, 243, .3)";
+	      document.querySelector('.button').style.backgroundColor = "rgba(0, 73, 255, .3)";
               document.getElementById("timerDisplay").textContent = "Working... (" + timeLeft + ")";
               timeLeft--;
               setTimeout(startTimer, 100);
@@ -118,8 +119,8 @@
       function resetButtonColor() {
           var button = document.querySelector('.button');
           if (button) {
-              if (button.style.backgroundColor === "rgba(150, 213, 243, .3)") {
-                  button.style.backgroundColor = "rgba(150, 213, 243, .10)";
+              if (button.style.backgroundColor === "rgba(0, 73, 255, .3)") {
+                  button.style.backgroundColor = "rgba(0, 73, 255, .10)";
                   timeLeft = 10; // Reset the timer
               }
           }
